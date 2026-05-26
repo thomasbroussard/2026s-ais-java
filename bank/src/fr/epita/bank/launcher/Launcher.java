@@ -1,9 +1,6 @@
 package fr.epita.bank.launcher;
 
-import fr.epita.bank.datamodel.Customer;
-import fr.epita.bank.datamodel.InvestmentAccount;
-import fr.epita.bank.datamodel.Stock;
-import fr.epita.bank.datamodel.StockOrder;
+import fr.epita.bank.datamodel.*;
 import fr.epita.bank.services.BankAccountService;
 
 import java.util.ArrayList;
@@ -29,16 +26,21 @@ public class Launcher {
         stockOrders.add(BankAccountService.buyStock(account, stock, 3));
         stockOrders.add(BankAccountService.buyStock(account, stock, 3));
 
-        //2 use cases:
-
-        // 1. to involve SavingsAccount: compute the yearly gain
-
-
-
         // 2. to involve 1 InvestmentAccount,  3 stock orders, 1 stock
 
 
+        //2 use cases:
+
+        // 1. to involve SavingsAccount: compute the yearly gain
+        SavingsAccount savingsAccount = new SavingsAccount();
+        savingsAccount.setBalance(3000.0);
+        savingsAccount.setInterestRate(0.02);
+
+        Double gain = BankAccountService.computeInterests(savingsAccount);
+        System.out.println("interest for this year " + gain);
     }
+
+
 
 
 }
