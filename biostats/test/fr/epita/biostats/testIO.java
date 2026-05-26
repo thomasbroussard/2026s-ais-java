@@ -12,20 +12,30 @@ public class testIO {
         //sampleInteractionWithConsole();
 
         Scanner fileScanner = new Scanner(new File("biostats/biostats.csv"));
-
+        fileScanner.nextLine();
         while (fileScanner.hasNextLine()) {
 
             String line = fileScanner.nextLine();
             System.out.println(line);
             String[] parts = line.split(",");
-            System.out.println(parts[0]);
 
             Person person = new Person();
 
-            person.setName(parts[0]);
+            String name = processString(parts[0]);
+            String sex = processString(parts[1]);
+
+            int age = Integer.parseInt(processString(parts[2]));
+            System.out.println(name);
+            person.setName(name);
 
         }
 
+    }
+
+    private static String processString(String name) {
+        name = name.replace("\"", "");
+        name = name.replace(" ", "");
+        return name;
     }
 
     private static void sampleInteractionWithConsole() {
