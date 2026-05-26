@@ -51,4 +51,15 @@ public class Person {
     public void setWeight(int weight) {
         this.weight = weight;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", sex='" + sex + '\'' +
+                ", age=" + age +
+                ", height=" + height +
+                ", weight=" + weight +
+                '}';
+    }
 }

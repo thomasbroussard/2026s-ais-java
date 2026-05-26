@@ -4,6 +4,8 @@ import fr.epita.biostats.datamodel.Person;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class testIO {
@@ -13,6 +15,7 @@ public class testIO {
 
         Scanner fileScanner = new Scanner(new File("biostats/biostats.csv"));
         fileScanner.nextLine();
+        List<Person> people = new ArrayList<>();
         while (fileScanner.hasNextLine()) {
 
             String line = fileScanner.nextLine();
@@ -25,11 +28,20 @@ public class testIO {
             String sex = processString(parts[1]);
 
             int age = Integer.parseInt(processString(parts[2]));
+            int height = Integer.parseInt(processString(parts[3]));
+            int weight = Integer.parseInt(processString(parts[4]));
 
             person.setName(name);
+            person.setSex(sex);
+            person.setAge(age);
+            person.setHeight(height);
+            person.setWeight(weight);
 
+            people.add(person);
 
         }
+
+        System.out.println(people);
 
     }
 
