@@ -25,8 +25,9 @@ public class testIO {
             String sex = processString(parts[1]);
 
             int age = Integer.parseInt(processString(parts[2]));
-            System.out.println(name);
+
             person.setName(name);
+
 
         }
 
