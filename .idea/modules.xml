@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/biostats/biostats.iml" filepath="$PROJECT_DIR$/biostats/biostats.iml" />
       <module fileurl="file://$PROJECT_DIR$/examples.iml" filepath="$PROJECT_DIR$/examples.iml" />
       <module fileurl="file://$PROJECT_DIR$/titanic/titanic.iml" filepath="$PROJECT_DIR$/titanic/titanic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/titanic-2/titanic-2.iml" filepath="$PROJECT_DIR$/titanic-2/titanic-2.iml" />
     </modules>
   </component>
 </project>
