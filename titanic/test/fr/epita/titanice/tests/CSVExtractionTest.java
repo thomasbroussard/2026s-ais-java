@@ -5,9 +5,8 @@ import fr.epita.titanic.datamodel.Passenger;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class CSVExtractionTest {
 
@@ -43,5 +42,30 @@ public class CSVExtractionTest {
         System.out.println("passengers loaded : " +  passengers.size());
         scanner.close();
 
+        Map<String, Long> collect = passengers
+                .stream()
+                .collect(Collectors.groupingBy(Passenger::getpClass, Collectors.counting()));
+
+        Map<String, Long> distribution = new HashMap<>();
+        for (Passenger p: passengers){
+            String currentPClass = p.getpClass();
+            Long count = distribution.get(currentPClass);
+            if (count == null){
+                count = 0L;
+            }else{
+                count ++;
+            }
+            distribution.put(currentPClass, count);
+        }
+
+        Map<Integer, Long> distributionSurvivedAmong3rd = passengers.stream()
+                .filter(p -> "3rd".equals(p.getpClass()))
+                .collect(Collectors.toList())
+                .stream()
+                .collect(Collectors.groupingBy(Passenger::getSurvived), Collectors.counting());
+
+        System.out.println(distribution);
+
+        System.out.println(collect);
     }
 }
